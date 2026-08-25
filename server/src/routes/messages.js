@@ -83,7 +83,7 @@ router.post('/thread/:username', protect, upload.single('file'), async (req, res
       content = text.trim().slice(0, 2000);
     } else if (type === 'image' || type === 'audio' || type === 'video') {
       if (!req.file) return res.status(400).json({ message: 'Selecione um arquivo.' });
-      content = `/uploads/${req.file.filename}`;
+      content = req.file.path;
     } else {
       return res.status(400).json({ message: 'Tipo de mensagem inválido.' });
     }
