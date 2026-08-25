@@ -10,9 +10,11 @@ const POPULATE_AUTHOR = 'username name avatar verified';
 
 router.get('/feed', protect, async (req, res) => {
   try {
-    const ids = [...req.user.following, req.user._id];
-    const posts = await Post.find({ author: { $in: ids } })
+    // Mostra publicações de todo mundo, mais recentes primeiro —
+    // não fica restrito só a quem você segue.
+    const posts = await Post.find({})
       .sort({ createdAt: -1 })
+      .limit(100)
       .populate('author', POPULATE_AUTHOR);
     res.json({ posts });
   } catch (err) {
