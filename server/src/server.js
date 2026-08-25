@@ -45,6 +45,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
 // Multer / general error handler
 app.use((err, req, res, next) => {
+  console.error('ERRO CAPTURADO:', err);
   if (err && err.message) {
     return res.status(400).json({ message: err.message });
   }
