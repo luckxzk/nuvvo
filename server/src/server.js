@@ -17,7 +17,20 @@ dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
+const allowedOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Requisições sem origin (apps mobile, curl, health checks) são permitidas.
+      if (!origin) return callback(null, true);
+      if (origin === allowedOrigin) return callback(null, true);
+      // Permite qualquer subdomínio da Vercel (produção e previews de deploy).
+      if (/\.vercel\.app$/i.test(origin)) return callback(null, true);
+      return callback(new Error('Não permitido pelo CORS.'));
+    },
+  })
+);
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
