@@ -85,7 +85,7 @@ router.put('/me', protect, upload.single('avatar'), async (req, res) => {
     }
     if (name) user.name = name.trim();
     if (typeof bio === 'string') user.bio = bio.slice(0, 160);
-    if (req.file) user.avatar = `/uploads/${req.file.filename}`;
+    if (req.file) user.avatar = req.file.path;
 
     await user.save();
     res.json({ user: user.toSafeObject() });
