@@ -1,11 +1,6 @@
 import multer from 'multer';
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const uploadsDir = path.join(__dirname, '..', '..', 'uploads');
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import cloudinary from '../config/cloudinary.js';
 
 const ALLOWED = {
   image: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
@@ -13,13 +8,19 @@ const ALLOWED = {
   audio: ['audio/webm', 'audio/ogg', 'audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/mp4', 'audio/aac'],
 };
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase();
-    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
-    cb(null, unique);
-  },
+const resourceTypeFor = (mimetype) => {
+  if (ALLOWED.image.includes(mimetype)) return 'image';
+  // Cloudinary trata vídeo E áudio como "video" (não tem tipo "audio" próprio)
+  return 'video';
+};
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: async (req, file) => ({
+    folder: 'nuvvo',
+    resource_type: resourceTypeFor(file.mimetype),
+    public_id: `${Date.now()}-${Math.round(Math.random() * 1e9)}`,
+  }),
 });
 
 const fileFilter = (req, file, cb) => {
