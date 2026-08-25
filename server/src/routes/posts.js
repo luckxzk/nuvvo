@@ -48,7 +48,7 @@ router.post('/', protect, upload.single('file'), async (req, res) => {
       }
     } else {
       if (!req.file) return res.status(400).json({ message: 'Selecione um arquivo para publicar.' });
-      content = `/uploads/${req.file.filename}`;
+      content = req.file.path;
     }
     const post = await Post.create({
       author: req.user._id,
