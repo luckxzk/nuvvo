@@ -113,6 +113,9 @@ export default function Layout() {
           <NavLink to="/explore" className={({ isActive }) => `mobile-link ${isActive ? 'active' : ''}`}>
             <Compass size={22} strokeWidth={2} />
           </NavLink>
+          <NavLink to="/search" className={({ isActive }) => `mobile-link ${isActive ? 'active' : ''}`}>
+            <Search size={22} strokeWidth={2} />
+          </NavLink>
           <button className="mobile-link" onClick={() => setCreateOpen(true)}>
             <PlusSquare size={22} strokeWidth={2} />
           </button>
