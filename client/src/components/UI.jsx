@@ -18,20 +18,18 @@ export function Avatar({ src, name, size = 40 }) {
 
 export function VerifiedBadge({ size = 14 }) {
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      className="verified-badge"
-      aria-label="Verificado"
-    >
+    <svg width={size} height={size} viewBox="0 0 24 24" className="verified-badge" aria-label="Verificado">
       <path
         fill="#1d9bf0"
-        d="M12 0l2.39 2.39 3.3-.62.62 3.3L21 7.06 19.6 10l1.4 2.94-2.69 1.99-.62 3.3-3.3-.62L12 20l-2.39-2.39-3.3.62-.62-3.3L3 12.94 4.4 10 3 7.06l2.69-1.99.62-3.3 3.3.62z"
+        d="M12 1l2.34 2.34 3.3-.51.51 3.3L21 8.99l-1.35 3.01L21 15l-2.85 2.35-.51 3.3-3.3-.51L12 23l-2.34-2.34-3.3.51-.51-3.3L3 15l1.35-3.01L3 8.99l2.85-2.36.51-3.3 3.3.51z"
       />
       <path
-        fill="#fff"
-        d="M10.2 15.4l-3.1-3.1 1.3-1.3 1.8 1.8 4.7-4.7 1.3 1.3z"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 12.5l2.5 2.5 5.5-6"
       />
     </svg>
   );
