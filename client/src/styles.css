@@ -485,7 +485,8 @@ img, video {
 }
 
 .post-card {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  border-radius: 18px;
 }
 
 .post-header {
@@ -493,7 +494,7 @@ img, video {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 14px 16px;
+  padding: 10px 14px;
 }
 
 .post-author {
@@ -573,10 +574,11 @@ img, video {
 
 .post-media {
   width: 100%;
-  max-height: 620px;
-  object-fit: cover;
+  max-height: 500px;
+  object-fit: contain;
   display: block;
   background: #050505;
+  border-radius: var(--radius-sm);
 }
 
 .video-player-wrap {
@@ -612,9 +614,9 @@ img, video {
 }
 
 .post-text-content {
-  padding: 4px 16px 20px;
-  font-size: 16px;
-  line-height: 1.6;
+  padding: 2px 14px 14px;
+  font-size: 15px;
+  line-height: 1.5;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -624,7 +626,7 @@ img, video {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 10px 12px 0;
+  padding: 6px 10px 0;
 }
 
 .action-btn {
@@ -646,10 +648,10 @@ img, video {
 }
 
 .post-meta {
-  padding: 6px 16px 16px;
+  padding: 4px 14px 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .post-likes {
