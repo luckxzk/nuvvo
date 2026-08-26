@@ -484,9 +484,18 @@ img, video {
   overflow: hidden;
 }
 
+/* Post estilo Twitter: sem "caixinha", só uma linha fina separando cada post.
+   Usamos flex + order pra colocar o texto em cima e os botões embaixo,
+   sem precisar mexer no JSX. */
 .post-card {
-  margin-bottom: 14px;
-  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding: 2px 0;
 }
 
 .post-header {
@@ -495,6 +504,7 @@ img, video {
   justify-content: space-between;
   gap: 10px;
   padding: 10px 14px;
+  order: 0;
 }
 
 .post-author {
@@ -573,18 +583,21 @@ img, video {
 }
 
 .post-media {
-  width: 100%;
-  max-height: 500px;
+  width: calc(100% - 28px);
+  margin: 4px 14px 8px;
+  max-height: 320px;
   object-fit: contain;
   display: block;
   background: #050505;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
+  order: 2;
 }
 
 .video-player-wrap {
   position: relative;
   display: block;
   cursor: pointer;
+  order: 2;
 }
 
 .video-mute-btn {
@@ -614,19 +627,21 @@ img, video {
 }
 
 .post-text-content {
-  padding: 2px 14px 14px;
+  padding: 2px 14px 8px;
   font-size: 15px;
   line-height: 1.5;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-word;
+  order: 1;
 }
 
 .post-actions {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 6px 10px 0;
+  padding: 4px 10px 6px;
+  order: 3;
 }
 
 .action-btn {
@@ -648,10 +663,11 @@ img, video {
 }
 
 .post-meta {
-  padding: 4px 14px 12px;
+  padding: 2px 14px 8px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  order: 1;
 }
 
 .post-likes {
@@ -991,10 +1007,13 @@ img, video {
   max-height: 90vh;
   overflow-y: auto;
   border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
 }
 
 .post-detail-panel .post-card {
   margin-bottom: 0;
+  border-bottom: none;
 }
 
 .post-detail-close {
