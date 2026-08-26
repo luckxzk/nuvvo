@@ -471,7 +471,7 @@ img, video {
 }
 
 .verified-badge {
-  color: var(--white);
+  color: #1d9bf0;
   margin-left: 4px;
   vertical-align: middle;
   display: inline-block;
