@@ -16,7 +16,7 @@ export function Avatar({ src, name, size = 40 }) {
   );
 }
 
-export function VerifiedBadge({ size = 16 }) {
+export function VerifiedBadge({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" className="verified-badge" aria-label="Verificado">
       <path
