@@ -23,13 +23,13 @@ export function VerifiedBadge({ size = 18 }) {
         fill="#1d9bf0"
         d="M12 1l2.34 2.34 3.3-.51.51 3.3L21 8.99l-1.35 3.01L21 15l-2.85 2.35-.51 3.3-3.3-.51L12 23l-2.34-2.34-3.3.51-.51-3.3L3 15l1.35-3.01L3 8.99l2.85-2.36.51-3.3 3.3.51z"
       />
-      <path
+         <path
         fill="none"
         stroke="#fff"
-        strokeWidth="2"
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M8 12.5l2.5 2.5 5.5-6"
+        d="M9 12.5l2 2 4.3-4.7"
       />
     </svg>
   );
