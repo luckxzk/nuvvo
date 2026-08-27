@@ -590,7 +590,7 @@ img, video {
   max-height: 420px;
   margin: 4px 14px 8px;
   border-radius: var(--radius-md);
-  align-self: flex-start;
+   align-self: center;
   order: 2;
 }
 
@@ -598,7 +598,7 @@ img, video {
   position: relative;
   display: block;
   cursor: pointer;
-  align-self: flex-start;
+  align-self: center;
   order: 2;
 }
 
