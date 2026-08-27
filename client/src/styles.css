@@ -598,6 +598,7 @@ img, video {
   position: relative;
   display: block;
   cursor: pointer;
+  align-self: flex-start;
   order: 2;
 }
 
